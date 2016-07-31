@@ -36,6 +36,7 @@
         }
     },
     "scripts": {
+        "post-create-project-cmd": "php init --env=Development --overwrite=n",
         "post-install-cmd": "php init --env=Development --overwrite=n"
     }
 }
