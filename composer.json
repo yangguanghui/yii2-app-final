@@ -6,9 +6,9 @@
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "issues": "https://github.com/yangguanghui/yii2-app-final/issues",
         "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "https://github.com/yangguanghui/yii2-app-final/issues",
+        "wiki": "https://github.com/yangguanghui/yii2-app-final/wiki",
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yangguanghui/yii2-app-final"
     },
