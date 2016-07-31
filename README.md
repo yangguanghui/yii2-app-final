@@ -1,7 +1,12 @@
-Yii 2 Advanced Project Template
+Yii 2 Final项目模板
 ===============================
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
+你所需要做的只有一件事情，就是给网站勾选自己想要的功能。
+
+这些功能包括：
+
+Yii 2 Advanced Project Template is a skeleton 
+[Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
 
 The template includes three tiers: front end, back end, and console, each of which
