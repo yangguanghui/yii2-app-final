@@ -8,7 +8,7 @@
     "support": {
         "issues": "https://github.com/yiisoft/yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "https://github.com/yangguanghui/yii2-app-final/wiki/issue",
+        "wiki": "https://github.com/yangguanghui/yii2-app-final/issues",
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yangguanghui/yii2-app-final"
     },
