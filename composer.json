@@ -8,9 +8,9 @@
     "support": {
         "issues": "https://github.com/yiisoft/yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
+        "wiki": "https://github.com/yangguanghui/yii2-app-final/wiki/issue",
         "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "source": "https://github.com/yangguanghui/yii2-app-final"
     },
     "minimum-stability": "dev",
     "require": {
