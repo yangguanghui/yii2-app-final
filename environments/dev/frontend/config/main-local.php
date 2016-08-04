@@ -19,6 +19,9 @@ if (!YII_ENV_TEST) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
+    $config['modules']['final'] = [
+        'class' => 'yangguanghui\extFinal\Module',
+    ];
 }
 
 return $config;
