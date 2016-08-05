@@ -5,50 +5,47 @@ namespace tests\codeception\frontend\unit\models\yangguanghui\extFinal\generator
 use Yii;
 use tests\codeception\frontend\unit\TestCase;
 use yangguanghui\extFinal\generators\db\Generator;
+use yii\helpers\FileHelper;
 
 class GeneratorTest extends TestCase
 {
 
     use \Codeception\Specify;
 
+    private $source = YII_APP_BASE_PATH . '/common/config/main-local.php';
+    private $dest = YII_APP_BASE_PATH 
+            . '/tests/codeception/frontend/unit/fixtures/data' 
+            . 'yangguanghui/extFinal/generators/db/main-local.php';
+    
     protected function setUp()
     {
         parent::setUp();
-        Yii::$app->mailer->fileTransportCallback = function ($mailer, $message) {
-            return 'testing_message.eml';
-        };
+        copy($this->source, $this->dest);
     }
 
     protected function tearDown()
     {
-        unlink($this->getMessageFile());
         parent::tearDown();
     }
 
-    public function testDB()
+    public function testSaveDB()
     {
         $model = new Generator();
-
+        $model->configFile = $this->dest;
+        
         $model->attributes = [
-            'name' => 'Tester',
-            'email' => 'tester@example.com',
-            'subject' => 'very important letter subject',
-            'body' => 'body of current message',
+            'dbDriver' => 'mysql',
+            'dbHost' => '127.0.0.1',
+            'dbPort' => '3306',
+            'dbName' => 'test-final',
         ];
 
-        $model->sendEmail('admin@example.com');
-
-        $this->specify('email should be send', function () {
-            expect('email file should exist', file_exists($this->getMessageFile()))->true();
-        });
-
-        $this->specify('message should contain correct data', function () use ($model) {
-            $emailMessage = file_get_contents($this->getMessageFile());
-
-            expect('email should contain user name', $emailMessage)->contains($model->name);
-            expect('email should contain sender email', $emailMessage)->contains($model->email);
-            expect('email should contain subject', $emailMessage)->contains($model->subject);
-            expect('email should contain body', $emailMessage)->contains($model->body);
+        expect('DB test-final should be create', $model->save())->true();
+        
+        $config = require($model->configFile);
+        
+        $this->specify('config file should content model data', function () use ($model, $config) {
+            expect('db name should be test-final', $config['components']['db'])->equals($model->dbName);
         });
     }
 
