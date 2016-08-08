@@ -147,6 +147,9 @@ function copyFile($root, $source, $target, &$all, $params)
     echo "   generate $target\n";
     @mkdir(dirname($root . '/' . $target), 0777, true);
     file_put_contents($root . '/' . $target, file_get_contents($root . '/' . $source));
+    if(strpos('local.php', $target) !== false)){
+		@chmod($root . '/' . $target, 0777);
+	}
     return true;
 }
 
