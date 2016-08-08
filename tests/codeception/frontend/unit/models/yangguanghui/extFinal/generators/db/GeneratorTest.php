@@ -47,6 +47,8 @@ class GeneratorTest extends TestCase
         $this->specify('config file should content model data', function () use ($model, $config) {
             expect('db name should be test-final', $config['components']['db']['dsn'])->contains($model->dbName);
         });
+        
+        expect('DB should be drop', $model->executeDropDB())->equals(0);
     }
 
     private function getMessageFile()
